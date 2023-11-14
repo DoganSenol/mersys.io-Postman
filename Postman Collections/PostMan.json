@@ -295,6 +295,42 @@
 						"url": "https://test.mersys.io/school-service/api/discounts/search"
 					},
 					"response": []
+				},
+				{
+					"name": "Create Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88a947f4-c6e9-4a1e-9925-0dd1fb7f4183",
+								"exec": [
+									"pm.test(\"Discount successfully created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "2a0c2b18-a241-4dac-a7c6-ebdd5e400a0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"{{$randomJobTitle}}\",\r\n  \"code\": \"{{$randomInt}}\",\r\n  \"active\": false,\r\n  \"translateDescription\": [],\r\n  \"priority\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/discounts"
+					},
+					"response": []
 				}
 			],
 			"id": "891a381b-75bb-48bf-883c-bb829fb34b73"
