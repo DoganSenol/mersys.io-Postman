@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "e4ed55d0-186e-49c0-a5ca-4fbc8f90f3a9",
+		"name": "Mersys Api Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Subject Categories",
+			"item": [
+				{
+					"name": "Mersys Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8c8b4e2c-75eb-43d4-8bf1-68832c60a825",
+								"exec": [
+									"pm.test(\"Login is SuccesFully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "41e16389-2c60-4853-afcf-244df390945b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Subject Categories List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
+								"exec": [
+									"pm.test(\"Subject Categories listed\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cfb02f93-5a4d-47ec-8a93-8d1eda8af41d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/subject-categories/search"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subject Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
+								"exec": [
+									"var gelenData=pm.response.json();\r",
+									"\r",
+									"pm.collectionVariables.set(\"SubjectID\", gelenData.id);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Subject Categorie has been successfully created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7f79fb2c-3f5f-4282-9646-64b66ebed1cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"TechnoBatch122\",\r\n    \"code\": \"181\",\r\n    \"active\": false,\r\n    \"translateName\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/subject-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Subject Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "988a8fb4-5fa2-45c7-8357-6ca5cc691879",
+								"exec": [
+									"pm.test(\"Subject Categorie has been successfully updated\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "1e281268-d025-4c89-a452-4cd2fdb789fb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{SubjectID}}\",\r\n  \"name\": \"{{$randomFullName}}\",\r\n  \"code\": \"{{$randomEmail}}\",\r\n  \"active\": true,\r\n  \"translateName\": [\r\n    null\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/subject-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5081cfce-e1be-4e4c-b495-3ae782a2e05b",
+								"exec": [
+									"pm.test(\"Subject Categorie deleted\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b33ff149-e303-40fa-8e3d-8b18f44173b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/subject-categories/{{SubjectID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject Categories Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a885df2a-b649-466d-935a-20597f531547",
+								"exec": [
+									"pm.test(\"Subject Categorie Delete Neagtive Test OK\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8ae73c68-b981-4eab-ac82-d66e7e1c22d7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/subject-categories/{{SubjectID}}"
+					},
+					"response": []
+				}
+			],
+			"id": "ff0d5ba5-7c32-4205-9a51-f99c47b31b42"
+		},
+		{
+			"name": "Discounts",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0170f6ac-afc6-4e11-b9fd-d70ccff77d2f",
+								"exec": [
+									"pm.test(\"Login is SuccesFully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9394261a-f380-4a60-9688-b8fcfebe6a21",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/auth/login"
+					},
+					"response": []
+				}
+			],
+			"id": "891a381b-75bb-48bf-883c-bb829fb34b73"
+		}
+	],
+	"variable": [
+		{
+			"key": "subjectCategoriesID",
+			"value": ""
+		},
+		{
+			"key": "SubjectID",
+			"value": ""
+		}
+	]
+}
