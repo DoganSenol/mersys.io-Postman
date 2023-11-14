@@ -375,13 +375,59 @@
 				},
 				{
 					"name": "Delete Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b203e3ea-b732-42d2-b8e7-66d941ef797f",
+								"exec": [
+									"pm.test(\"Discount successfully deleted\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "8c39e4bf-a33d-4598-b72f-56a496b3c13a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/discounts/{{DiscountID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Discount Nagative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b203e3ea-b732-42d2-b8e7-66d941ef797f",
+								"exec": [
+									"pm.test(\"Discount delete Negative successfully\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message\", function () {\r",
+									"    pm.response.to.have.body(\"Discount not found\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "183fb26b-4d0f-447e-b597-44f08cc5848f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/discounts/{{DiscountID}}"
 					},
 					"response": []
 				}
