@@ -253,6 +253,33 @@
 						"url": "https://test.mersys.io/auth/login"
 					},
 					"response": []
+				},
+				{
+					"name": "Discounts List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7181c435-b64b-4456-9667-0f1dbfb42da0",
+								"exec": [
+									"pm.test(\"Discount List loaded successfully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "df42c73e-3570-447c-bce2-7f41351aef34",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/discounts/search"
+					},
+					"response": []
 				}
 			],
 			"id": "891a381b-75bb-48bf-883c-bb829fb34b73"
