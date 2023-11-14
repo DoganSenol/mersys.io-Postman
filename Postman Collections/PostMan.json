@@ -304,6 +304,11 @@
 							"script": {
 								"id": "88a947f4-c6e9-4a1e-9925-0dd1fb7f4183",
 								"exec": [
+									"var gelenData=pm.response.json();\r",
+									"\r",
+									"pm.collectionVariables.set(\"DiscountID\", gelenData.id);\r",
+									"\r",
+									"\r",
 									"pm.test(\"Discount successfully created\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});"
@@ -331,6 +336,54 @@
 						"url": "https://test.mersys.io/school-service/api/discounts"
 					},
 					"response": []
+				},
+				{
+					"name": "Edit Discount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "011259b2-09cd-4fd0-a3c4-8b70575171cb",
+								"exec": [
+									"pm.test(\"Discount successfully updated\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8157e9e1-86d7-4441-b5e2-502d067d350a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{DiscountID}}\",\r\n    \"description\": \"{{$randomBankAccountName}}\",\r\n    \"code\": \"568\",\r\n    \"active\": true,\r\n    \"translateDescription\": [],\r\n    \"priority\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/discounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Discount",
+					"id": "8c39e4bf-a33d-4598-b72f-56a496b3c13a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "891a381b-75bb-48bf-883c-bb829fb34b73"
@@ -343,6 +396,10 @@
 		},
 		{
 			"key": "SubjectID",
+			"value": ""
+		},
+		{
+			"key": "DiscountID",
 			"value": ""
 		}
 	]
