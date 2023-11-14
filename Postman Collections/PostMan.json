@@ -29,6 +29,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "24887e71c509cd01daa609b922f1e1827bf19f88b47cb6a8d2e5a6a54b867b92"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -277,6 +283,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "https://test.mersys.io/school-service/api/discounts/search"
 					},
 					"response": []
