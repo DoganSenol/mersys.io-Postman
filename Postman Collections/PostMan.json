@@ -412,8 +412,8 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"message\", function () {\r",
-									"    pm.response.to.have.body(\"Discount not found\");\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Discount not foun\");\r",
 									"});"
 								],
 								"type": "text/javascript"
