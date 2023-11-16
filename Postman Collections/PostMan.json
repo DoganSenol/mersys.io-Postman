@@ -575,7 +575,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": \"\",\r\n  \"name\": \"toto1233\",\r\n  \"shortName\": \"toto\",\r\n  \"active\": true,\r\n  \"capacity\": 120,\r\n  \"type\": \"CLASS\",\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"raw": "{\r\n  \"id\": \"{{SchoolID}}\",\r\n  \"name\": \"SenolClass\",\r\n  \"shortName\": \"toto1\",\r\n  \"active\": true,\r\n  \"capacity\": 13,\r\n  \"type\": \"CLASS\",\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -583,6 +583,60 @@
 							}
 						},
 						"url": "https://test.mersys.io/school-service/api/location"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete School Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4562127-75ef-4cb7-bdb8-0c798af0a2a4",
+								"exec": [
+									"pm.test(\"The School Location successfull deleted\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0e1013c4-7823-4aa3-97c8-ee3a4e4151a4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/location/{{SchoolID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete School Location Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4562127-75ef-4cb7-bdb8-0c798af0a2a4",
+								"exec": [
+									"pm.test(\"The School Location successfull deleted\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5b1cd997-e962-45ad-af34-c51c12b847a1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://test.mersys.io/school-service/api/location/{{SchoolID}}"
 					},
 					"response": []
 				}
