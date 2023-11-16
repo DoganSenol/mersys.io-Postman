@@ -433,6 +433,60 @@
 				}
 			],
 			"id": "891a381b-75bb-48bf-883c-bb829fb34b73"
+		},
+		{
+			"name": "School Loations",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "10253bef-c305-42a8-80c1-678a8f59e822",
+								"exec": [
+									"pm.test(\"Login is SuccesFully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "1b0aba99-25bb-445c-a3da-dde09be54b05",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "2acfe9e0-8e21-439a-bd35-bab8553eca61",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "911ad45b-e825-4420-818a-f189800713fc"
 		}
 	],
 	"variable": [
