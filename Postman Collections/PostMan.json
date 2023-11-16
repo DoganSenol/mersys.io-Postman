@@ -621,8 +621,12 @@
 							"script": {
 								"id": "c4562127-75ef-4cb7-bdb8-0c798af0a2a4",
 								"exec": [
-									"pm.test(\"The School Location successfull deleted\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"The School Location was deleted\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"not found\");\r",
 									"});"
 								],
 								"type": "text/javascript"
