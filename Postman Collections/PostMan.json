@@ -675,7 +675,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": \"true\"\r\n}\r\n",
+							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}},\r\n    \"rememberMe\": \"true\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
