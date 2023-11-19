@@ -438,7 +438,7 @@
 			"name": "School Loations",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Login",
 					"event": [
 						{
 							"listen": "test",
@@ -474,7 +474,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Get List",
 					"event": [
 						{
 							"listen": "test",
@@ -656,13 +656,13 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "96a1e636-6d83-4797-9f43-fbd46b779a9c",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
-								"type": "text/javascript",
-								"id": "96a1e636-6d83-4797-9f43-fbd46b779a9c"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -675,7 +675,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}},\r\n    \"rememberMe\": \"true\"\r\n}",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": \"true\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
